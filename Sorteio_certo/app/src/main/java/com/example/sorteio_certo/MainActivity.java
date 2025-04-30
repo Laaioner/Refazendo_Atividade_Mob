@@ -34,7 +34,13 @@ public class MainActivity extends AppCompatActivity {
 
         TextView textResultado = findViewById(R.id.textResultado);
 
-        int sorteio = new Random().nextInt(min,max);
+        if (min > max) {
+            int recebe = min;
+            min = max;
+            max = recebe;
+        }
+
+        int sorteio = new Random().nextInt(min,max + 1);
         textResultado.setText("O número sorteado foi: " + sorteio);
     }
 
