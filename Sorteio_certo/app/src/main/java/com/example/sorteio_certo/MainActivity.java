@@ -1,5 +1,6 @@
 package com.example.sorteio_certo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -7,9 +8,6 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Random;
 
@@ -23,25 +21,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void SortearNumero (View view){
-        EditText num1 = findViewById(R.id.num1);
-        EditText num2 = findViewById(R.id.num2);
-        String num1Digitado = num1.getText().toString();
-        String num2Digitado = num2.getText().toString();
+    public void CalcularImc (View view){
 
-        int min = Integer.parseInt(num1Digitado);
-        int max = Integer.parseInt(num2Digitado);
+        EditText altura = findViewById(R.id.altura);
+        EditText peso = findViewById(R.id.peso);
 
-        TextView textResultado = findViewById(R.id.textResultado);
+        String alturaDigitada = altura.getText().toString();
+        String pesoDigitado = peso.getText().toString();
 
-        if (min > max) {
-            int recebe = min;
-            min = max;
-            max = recebe;
-        }
+        float alturinha = Float.parseFloat(alturaDigitada) / 100;
+        float pesinho = Float.parseFloat(pesoDigitado);
+        float imc = pesinho / (alturinha * alturinha);
 
-        int sorteio = new Random().nextInt(min,max + 1);
-        textResultado.setText("O número sorteado foi: " + sorteio);
+        Intent i = new Intent(getApplicationContext(), MsgActivity.class);
+        i.putExtra("imc",Float.toString(imc));
+        startActivity(i);
     }
 
 }
