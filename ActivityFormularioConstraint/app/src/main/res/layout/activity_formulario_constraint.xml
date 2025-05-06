@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityFormularioConstraint">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/txtNome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/txtNome_hint"
+                android:inputType="text"
+                android:ems="10"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <EditText
+                android:id="@+id/txtEndereco"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/txtEndereco_hint"
+                android:inputType="text"
+                android:ems="10"
+                app:layout_constraintTop_toBottomOf="@id/txtNome"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/txtCidade"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/txtCidade_hint"
+                android:drawableStart="@android:drawable/ic_menu_mylocation"
+                android:inputType="text"
+                android:ems="10"
+                app:layout_constraintTop_toBottomOf="@id/txtEndereco"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/txtEmail_hint"
+                android:drawableStart="@android:drawable/ic_dialog_email"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                app:layout_constraintTop_toBottomOf="@id/txtCidade"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/txtTelefone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/txtTelefone_hint"
+                android:drawableStart="@android:drawable/ic_menu_call"
+                android:inputType="phone"
+                android:ems="10"
+                app:layout_constraintTop_toBottomOf="@id/txtEmail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
+            <Spinner
+                android:id="@+id/spinnerEstados"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/estados_array"
+                app:layout_constraintTop_toBottomOf="@id/txtTelefone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/txtCep"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/txtCep_hint"
+                android:inputType="textPostalAddress"
+                android:ems="10"
+                app:layout_constraintTop_toBottomOf="@id/spinnerEstados"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/txtAniversario"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/txtAniversario_hint"
+                android:drawableStart="@android:drawable/ic_menu_my_calendar"
+                android:inputType="date"
+                android:ems="10"
+                app:layout_constraintTop_toBottomOf="@id/txtCep"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_month"
+                app:layout_constraintTop_toBottomOf="@id/txtAniversario"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
