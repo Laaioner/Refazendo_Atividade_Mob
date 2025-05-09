@@ -21,7 +21,6 @@ public class MsgActivity extends AppCompatActivity {
         ImageView imgIMC = findViewById(R.id.imgIMC);
         TextView txtIMC = findViewById(R.id.txtIMC);
         TextView txtResultado = findViewById(R.id.txtResultado);
-        Bundle bundle = getIntent().getExtras();
 
         String imcRecebe = getIntent().getStringExtra("imc");
         float calcImc = Float.parseFloat(imcRecebe);
