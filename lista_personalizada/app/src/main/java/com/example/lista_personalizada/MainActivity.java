@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     ListView lista;
     String[] frutas = {
-            "Banana", "Morango", "Uva", "Mexerica", "Laranja","Maça", "Acabaxi", "Amora"
+            "Banana", "Morango", "Uva", "Mexerica", "Laranja","Maça", "Acabaxi", "Amora","Damasco"
     };
 
     @Override
