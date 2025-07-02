@@ -1,8 +1,11 @@
 package com.example.lista_personalizada;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,8 +16,14 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     ListView lista;
-    String[] frutas = {
-            "Banana", "Morango", "Uva", "Mexerica", "Laranja","Maça", "Acabaxi", "Amora","Damasco", "Pessego"
+    String[] planetas = {
+            "Terra", "Marte", "Sol", "Vênus", "Saturno","Urano", "Netuno", "Jupite","Mercurio"
+    };
+
+    int[] imagensPlanetas = {
+            R.drawable.earth, R.drawable.mars, R.drawable.sun, R.drawable.venus,
+            R.drawable.saturn, R.drawable.uranus, R.drawable.neptune,
+            R.drawable.jupter, R.drawable.mercury
     };
 
     @Override
@@ -27,10 +36,18 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
                 this,
-                android.R.layout.simple_list_item_1,
-                android.R.id.text1,
-                frutas
+                android.R.layout.activity_planeta_list_adapter,
+                planetas
         );
         lista.setAdapter(adaptador);
+
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                String valorSelecionado = lista.getItemAtPosition(i).toString();
+                Toast.makeText(MainActivity.this, valorSelecionado, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
